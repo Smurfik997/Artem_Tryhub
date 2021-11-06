@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ExtraTask1 {
     public static int nextBigger(int number) {
@@ -12,31 +10,43 @@ public class ExtraTask1 {
             number /= 10;
         }
 
-        boolean swapDone = false;
 
+        int firstGreaterDigit = -1; // index of first digit greater than next
         for (int i = 0; i < digits.size() - 1; i++) {
             if (digits.get(i) > digits.get(i + 1)) {
-                int temporary = digits.get(i + 1);
-                digits.set(i + 1, digits.get(i));
-                digits.set(i, temporary);
-                swapDone = true;
-                break;
+               firstGreaterDigit = i + 1;
+               break;
             }
         }
 
-        if (swapDone == false) {
+        if (firstGreaterDigit == -1) {
             return -1;
-        } else {
-            int nextNumber = 0;
-            int coefficient = 1;
-
-            for (int digit : digits) {
-                nextNumber += digit * coefficient;
-                coefficient *= 10;
-            }
-
-            return nextNumber;
         }
+
+        int minIndex = 0;
+        for (int i = 0; i < firstGreaterDigit; i++) {
+            if (digits.get(minIndex) > digits.get(i)) {
+                minIndex = i;
+            }
+        }
+
+        int temporary = digits.get(firstGreaterDigit);
+        digits.set(firstGreaterDigit, digits.get(minIndex));
+        digits.set(minIndex, temporary);
+
+        Collections.sort(digits.subList(0, firstGreaterDigit));
+        Collections.reverse(digits.subList(0, firstGreaterDigit));
+
+        // restore number from digits
+        int nextNumber = 0;
+        int coefficient = 1;
+
+        for (int digit : digits) {
+            nextNumber += digit * coefficient;
+            coefficient *= 10;
+        }
+
+        return nextNumber;
     }
 
     public static void exit() throws IOException {
