@@ -3,6 +3,7 @@ import java.util.*;
 
 public class ExtraTask1 {
     public static int nextBigger(int number) {
+        // number to list of digits
         List<Integer> digits = new ArrayList<>();
 
         while (number != 0) {
@@ -10,12 +11,12 @@ public class ExtraTask1 {
             number /= 10;
         }
 
-
         int firstGreaterDigit = -1; // index of first digit greater than next
+
         for (int i = 0; i < digits.size() - 1; i++) {
             if (digits.get(i) > digits.get(i + 1)) {
-               firstGreaterDigit = i + 1;
-               break;
+                firstGreaterDigit = i + 1;
+                break;
             }
         }
 
@@ -23,19 +24,15 @@ public class ExtraTask1 {
             return -1;
         }
 
-        int minIndex = 0;
-        for (int i = 0; i < firstGreaterDigit; i++) {
-            if (digits.get(minIndex) > digits.get(i)) {
-                minIndex = i;
+        Collections.swap(digits, 0, firstGreaterDigit);
+        for (int i = 0; i < firstGreaterDigit - 1; i++) {
+            if (digits.get(i) > digits.get(i + 1)) {
+                Collections.swap(digits, i, i + 1);
+            } else {
+                Collections.reverse(digits.subList(0, firstGreaterDigit));
+                break;
             }
         }
-
-        int temporary = digits.get(firstGreaterDigit);
-        digits.set(firstGreaterDigit, digits.get(minIndex));
-        digits.set(minIndex, temporary);
-
-        Collections.sort(digits.subList(0, firstGreaterDigit));
-        Collections.reverse(digits.subList(0, firstGreaterDigit));
 
         // restore number from digits
         int nextNumber = 0;

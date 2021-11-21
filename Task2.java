@@ -1,36 +1,18 @@
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Task2 {
     public static Character first_non_repeating_letter(String str) {
-        // letter in lowercase -> index of first entry | str.length() if more than one
-        HashMap<Character, Integer> letters = new HashMap<>();
+        String strInLowerCase = str.toLowerCase();
 
         for (int i = 0; i < str.length(); i++) {
-            Character symbol = Character.toLowerCase(str.charAt(i));
-
-            if (letters.containsKey(symbol)) {
-                letters.replace(symbol, str.length());
-            } else {
-                letters.put(symbol, i);
+            char currentLetter = strInLowerCase.charAt(i);
+            if (strInLowerCase.chars().filter(letter -> letter == currentLetter).count() == 1) {
+                return str.charAt(i);
             }
         }
 
-        // first unique symbol
-        int minIndex = str.length();
-        for (Map.Entry<Character, Integer> entry : letters.entrySet()) {
-            if (entry.getValue() < minIndex) {
-                minIndex = entry.getValue();
-            }
-        }
-
-        // return result with O(N) algorithm complexity
-        if (minIndex != str.length())
-            return str.charAt(minIndex);
-        else
-            return null;
+        return null;
     }
 
     public static void exit() throws IOException {

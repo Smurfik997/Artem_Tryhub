@@ -6,15 +6,15 @@ public class Task4 {
     public static int pairs_for_target_sum(List<Integer> numbers, int targetValue) {
         int totalPairsCount = 0;
 
-        for (int i = 0; i < numbers.size(); i++) {
-            for (int j = 0; j < numbers.size(); j++) {
-                if (i != j && numbers.get(i) + numbers.get(j) == targetValue) {
+        for (int i = 0; i < numbers.size() - 1; i++) {
+            for (int j = i + 1; j < numbers.size(); j++) {
+                if (numbers.get(i) + numbers.get(j) == targetValue) {
                     totalPairsCount += 1;
                 }
             }
         }
 
-        return totalPairsCount / 2;
+        return totalPairsCount;
     }
 
     public static int pairs_for_target_sum_stream(List<Integer> numbers, int targetValue) {
