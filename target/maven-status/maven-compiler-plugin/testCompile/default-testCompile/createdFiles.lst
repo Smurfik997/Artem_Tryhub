@@ -1,0 +1,6 @@
+stepdefs\SearchDeleteUserStepdefs.class
+stepdefs\MenuNavigationStepdefs.class
+stepdefs\LoginStepdefs.class
+stepdefs\AddUserStepdefs.class
+TestRunner.class
+TestScenarioHardcoded.class

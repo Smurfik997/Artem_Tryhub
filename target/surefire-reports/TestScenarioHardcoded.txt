@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: TestScenarioHardcoded
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.324 s - in TestScenarioHardcoded

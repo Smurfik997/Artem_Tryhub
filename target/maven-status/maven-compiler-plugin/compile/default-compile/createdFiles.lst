@@ -1,0 +1,7 @@
+pageobjects\BasePageObject.class
+pagefragments\MenuPageFragment.class
+pageobjects\AuthenticatedUserPageObject.class
+pageobjects\LoginPageObject.class
+pageobjects\AddUserPageObject.class
+pageobjects\AdminPageObject.class
+pageobjects\UsersPageObject.class
