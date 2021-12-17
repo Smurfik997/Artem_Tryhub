@@ -1,0 +1,4 @@
+stepdefs\DeleteOrGetMetadataStepdefs.class
+stepdefs\UploadFileStepdefs.class
+stepdefs\GeneralRequestsStepdefs.class
+TestRunner.class

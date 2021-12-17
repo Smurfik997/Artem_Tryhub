@@ -1,0 +1,16 @@
+api\GetFileMetadataRequest.class
+api\UploadRequest.class
+responses\ResponseHandler.class
+api\BaseRequest.class
+rest\DataType.class
+api\Authentication.class
+rest\Request.class
+responses\types\FileMetadata.class
+api\APIrequest.class
+rest\RequestAPImethod.class
+responses\types\Error.class
+rest\RequestBuilder.class
+api\DeleteRequest.class
+api\Configurations.class
+rest\RequestBody.class
+rest\RequestType.class
